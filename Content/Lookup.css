@@ -1,0 +1,130 @@
+﻿/*Style sheet for the bread crumb look up control.*/
+
+
+/*Style applied on the breadcrumb div*/
+.ds-bc-nav {
+    /*padding-left: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;*/
+}
+
+/*Style applied to the bread crumb div when the bread crumb is in lookup mode*/
+.ds-bc-nav-lu {
+    /*border: 1px solid #f5f5f2;*/
+}
+
+/*Style to display the breadcrumb caret*/
+.ds-bc-nav-lu-caret {
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    border: 1px solid #f5f5f2;
+    width: 16px;
+    text-align: center;
+}
+
+/*Style when the caret is expanded.*/
+.ds-bc-nav-lu-caret-expand {
+}
+
+/*Style when the mouse is over the caret*/
+.ds-bc-nav-lu-caret:hover {
+    background-color: rgb(238, 232, 232);
+    border: 1px solid #DDDDDD;
+}
+
+/*Represents the item in the breadcrumb url*/
+.ds-bc-nav-lu-item {
+}
+
+
+/*Style applied on the lookup control div.*/
+.ds-nav-lu {
+    position: absolute;
+    top: 35px;
+    left: 14px;
+    border: 1px solid black;
+    z-index: 100;
+    background-color: white;
+    width: 300px;
+}
+
+/*Style applied to the lookup search text box*/
+.ds-nav-lu-search {
+    border: 0px;
+    width: 100%;
+    max-width: none;
+    /*padding: 0px;
+    padding-left: 1px;*/
+    /*border-bottom: 1px medium;*/
+    /*background-color: #f5f5f5;*/
+}
+
+/*Style applied to the lookup results. If the height is changed remember to change the padding-top in ds-nav-lu-results-loading-container*/
+.ds-nav-lu-results {
+    padding-top: 2px;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x:hidden;
+    position: relative;
+}
+
+/*Style applied to the loading div when the results are loaded.*/
+.ds-nav-lu-results-loading {
+}
+
+/*style applied to the loading image container to make it center vertically and horizontally. The margin-top is dependent on the results div height.*/
+.ds-nav-lu-results-loading-container {
+    margin-top: 90px;
+    text-align: center;
+}
+
+/*The style applied on the loading icon*/
+.ds-nav-lu-results-loading-icon {
+    font-size: 20px;
+}
+
+/*The style applied to the active item (selected through mouse hover or keyboard navigation*/
+.ds-nav-lu-results-activeitem {
+    background-color: lightgrey;
+}
+
+/*The style applied to the unordered list*/
+.ds-nav-lu-results-ul {
+    list-style-type: none;
+    padding-left: 2px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    
+}
+
+/*The style applied to individual item in the result list*/
+.ds-nav-lu-results-li {
+    padding-bottom: 2px;
+}
+
+/*The style applied to the folder icon*/
+.ds-nav-lu-results-li-item-foldericon {
+    color: orange;
+}
+
+/*The style applied to the item inside the li*/
+.ds-nav-lu-results-li-item {
+    float: right;
+    padding-right: 5px;
+}
+
+/*The style applied to the back item*/
+.ds-nav-lu-results-li-item-back {
+}
+
+/*The style applied to the navigation item*/
+.ds-nav-lu-results-li-item-navigate {
+}
+
+/*the style applied to the default bread crumb navigaiton item. The default item is the one that will not be included in the path.*/
+.ds-bc-defaultitem {
+}

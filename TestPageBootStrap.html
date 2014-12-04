@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>>Test Page BootStrap</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Lookup.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/Lookup.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            var lookupUrl = 'api/Items';
+
+
+            $("#divBreadCrumb1").lookupIpodMenu({
+                displaySearchBox: true,
+                enableAnimation: true,
+                idDivLookup: "div1",
+                lookupPath: "",
+                useAutoCompleteOnKeyPress: true,
+                autoCompleteOnKeyPressDelay: 1000,
+                callback_itemClicked: function (text) {
+                    
+                },
+                callback_itemSelected: function (text) {
+                    $("#selectedProduct").text(text);
+                },
+                callback_displayLookup: function (text, target) {
+                    console.log(text);
+                    return true;
+                },
+                callback_closeLookup: function (target) {
+                    return true;
+                },
+                callback_getdata: function (value, onSuccess, onError) {
+
+                    $.ajax({
+                        url: lookupUrl,
+                        data: { Path: value },
+                        success: onSuccess,
+                        error: function (err) {
+
+                            if (err.responseJSON !== undefined) {
+                                alert(err.responseJSON.ExceptionMessage);
+                            }
+                            else if (err.responseText !== undefined) {
+                                alert(err.responseText);
+                            }
+                            onError(err);
+                        },
+                        dataType: "json"
+                    });
+
+                }
+            });
+
+
+
+        })
+    </script>
+
+
+    <!-- The following styles should be overriden to change the background in the supported bootstrap -->
+    <style>
+        .ds-nav-lu-custom {
+            background-color: #f5f5f5 !important;
+        }
+
+        .ds-nav-lu-search-custom {
+            background-color: #f5f5f5 !important;
+        }
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <div class="panel panel-default" style="margin-top: 10px;">
+            <div class="panel-heading">
+               <strong>
+                   Choose your product
+               </strong> 
+
+                <div class="" id="divBreadCrumb1">
+
+                </div>
+            </div>
+
+           
+
+          
+            <div class="panel-body">
+
+                <h6>You have selected:</h6>
+                <span id="selectedProduct">
+
+                </span>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

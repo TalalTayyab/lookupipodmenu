@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    
+    <link href="Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Lookup.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/Lookup.js"></script>
+
+  
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            var lookupUrl = 'api/Items';
+        
+
+            $("#divBreadCrumb1").lookupIpodMenu({
+                displaySearchBox: true,
+                enableAnimation: true,
+                idDivLookup: "div1",
+                lookupPath: "Mobile/Gaming/MSI",
+                useAutoCompleteOnKeyPress: true,
+                autoCompleteOnKeyPressDelay: 500,
+                callback_itemClicked: function (text) {
+                    alert(text);
+
+                },
+                callback_itemSelected: function (text) {
+                    $("#selectedProduct1").text(text);
+                },
+                callback_getdata: function (value, onSuccess, onError) {
+
+                    $.ajax({
+                        url: lookupUrl,
+                        data: { Path: value },
+                        success: onSuccess,
+                        error: function (err) {
+
+                            if (err.responseJSON !== undefined) {
+                                alert(err.responseJSON.ExceptionMessage);
+                            }
+                            else if (err.responseText !== undefined) {
+                                alert(err.responseText);
+                            }
+                            onError(err);
+                        },
+                        dataType: "json"
+                    });
+
+                }
+            });
+
+
+            $("#divBreadCrumb2").lookupIpodMenu({
+                displaySearchBox: false,
+                enableAnimation: false,
+                idDivLookup: "div2",
+                lookupPath: "Mobile/Gaming/Gigabyte",
+                callback_itemClicked: function (text) {
+                    alert(text);
+                },
+                callback_itemSelected: function (text) {
+                    $("#selectedProduct2").text(text);
+                },
+                callback_getdata: function (value, onSuccess, onError) {
+
+                    $.ajax({
+                        url: lookupUrl,
+                        data: { Path: value },
+                        success: onSuccess,
+                        error: function (err) {
+
+                            if (err.responseJSON !== undefined) {
+                                alert(err.responseJSON.ExceptionMessage);
+                            }
+                            else if (err.responseText !== undefined) {
+                                alert(err.responseText);
+                            }
+                            onError(err);
+                        },
+                        dataType: "json"
+                    });
+
+                }
+            });
+
+
+
+        })
+    </script>
+
+</head>
+
+
+
+<body>
+
+    <h4> Choose your MSI Product: </h4>
+    <div class="" id="divBreadCrumb1">
+
+    </div>
+
+    <h5>You have selected: </h5>
+    <span id="selectedProduct1">
+
+    </span>
+
+
+    <h4> Choose your Gigabyte Product: </h4>
+    <div class="" id="divBreadCrumb2">
+
+    </div>
+
+    <h5>You have selected: </h5>
+    <span id="selectedProduct2">
+
+    </span>
+
+    
+</body>
+
+
+
+
+
+</html>
